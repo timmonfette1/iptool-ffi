@@ -24,7 +24,7 @@ for updates.
 Available Libraries
 --------------
 All availble bindings that can be built into libraries can be found in the "bindings/" directory.<br />
-Currently, the following programming have available libraries:
+Currently, the following programming languages have available libraries:
 
   - python
 
@@ -35,9 +35,9 @@ provided Makefile.<br />
 
 All make targets will first compile a release version of the FFI by running `cargo build --release`.<br />
 
-`make py-build`
+`make py-build`<br />
 Will compile the FFI and build the Python library in the resulting "lib/" directory.
 
-`make clean`
+`make clean`<br />
 Will remove the "Cargo.lock", the "target/" directory and the "lib/" directory.<br />
 It's recommended to run this before building a new library.
