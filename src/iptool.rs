@@ -109,7 +109,7 @@ pub extern fn ipv6_bin(s: *const c_char) -> *mut c_char {
 
 // Free a string from memory
 #[no_mangle]
-pub extern fn release_word(s: *mut c_char) {
+pub extern fn free_string(s: *mut c_char) {
     unsafe {
         if s.is_null() { return; }
         CString::from_raw(s)

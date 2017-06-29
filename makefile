@@ -6,9 +6,14 @@
 # Author:
 # Tim Monfette
 
-# Default builds the Python library
-default: py-build
+default: print-usage
 
+# Print a message
+print-usage:
+	@echo "No default target for this makefile."
+	@echo "See the README for possible targets."
+
+# Compile Python lib
 py-build:
 	@cargo build --release
 	@mkdir lib
