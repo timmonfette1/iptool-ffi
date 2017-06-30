@@ -38,10 +38,15 @@ All make targets will first compile a release version of the FFI by running `car
 
 `make c-build`<br />
 Will compile the FFI and build the C object file in the resulting "lib/" directory.<br />
+
 In order to use this object file, you need to link both it and the FFI at compilation of your main source code.<br />
+
 An example is: `$ gcc test.c iptool.o -L ./ -liptool -o run`<br />
+
 This will compile the source code file "test.c" and link it with the IP Tool object file and the "libiptool.so" library (the FFI).<br />
+
 When executing, specify your LD_LIBRARY_PATH like so: `$ LD_LIBRARY_PATH=./ ./run`<br />
+
 You can permanently set LD_LIBRARY_PATH but be warned you might run into issues with executing other C code.
 
 `make py-build`<br />
@@ -50,3 +55,8 @@ Will compile the FFI and build the Python library in the resulting "lib/" direct
 `make clean`<br />
 Will remove the "Cargo.lock", the "target/" directory and the "lib/" directory.<br />
 It's recommended to run this before building a new library.
+
+Examples
+-------------
+The "examples" directory provides example source code files of how to use the generated libraries for each
+binding. They assume you've already built the library and imported it/compiled it with your souce code.
