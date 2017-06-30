@@ -21,7 +21,6 @@ use iptool_core::ipv6;
 #[no_mangle]
 pub extern fn valid_ipv4(s: *const c_char) -> *mut c_char {
     let c_str = unsafe {
-
         CStr::from_ptr(s)
     };
 
@@ -36,7 +35,6 @@ pub extern fn valid_ipv4(s: *const c_char) -> *mut c_char {
 #[no_mangle]
 pub extern fn ipv4_ipv6(s: *const c_char) -> *mut c_char {
     let c_str = unsafe {
-
         CStr::from_ptr(s)
     };
 
@@ -51,7 +49,6 @@ pub extern fn ipv4_ipv6(s: *const c_char) -> *mut c_char {
 #[no_mangle]
 pub extern fn ipv4_bin(s: *const c_char) -> *mut c_char {
     let c_str = unsafe {
-
         CStr::from_ptr(s)
     };
 
@@ -66,7 +63,6 @@ pub extern fn ipv4_bin(s: *const c_char) -> *mut c_char {
 #[no_mangle]
 pub extern fn valid_ipv6(s: *const c_char) -> *mut c_char {
     let c_str = unsafe {
-
         CStr::from_ptr(s)
     };
 
@@ -81,7 +77,6 @@ pub extern fn valid_ipv6(s: *const c_char) -> *mut c_char {
 #[no_mangle]
 pub extern fn ipv6_ipv4(s: *const c_char) -> *mut c_char {
     let c_str = unsafe {
-
         CStr::from_ptr(s)
     };
 
@@ -96,7 +91,6 @@ pub extern fn ipv6_ipv4(s: *const c_char) -> *mut c_char {
 #[no_mangle]
 pub extern fn ipv6_bin(s: *const c_char) -> *mut c_char {
     let c_str = unsafe {
-
         CStr::from_ptr(s)
     };
 

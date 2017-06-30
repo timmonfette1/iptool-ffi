@@ -13,12 +13,20 @@ print-usage:
 	@echo "No default target for this makefile."
 	@echo "See the README for possible targets."
 
+# Compile C lib
+c-build:
+	@cargo build --release
+	@mkdir lib
+	@cp -r ./bindings/c/* ./lib/
+	@cp -r ./target/release/libiptool.so ./lib/
+	@gcc -o ./lib/iptool.o -c ./lib/iptool.c
+
 # Compile Python lib
 py-build:
 	@cargo build --release
 	@mkdir lib
 	@cp -r ./bindings/python/* ./lib/
-	@cp -r ./target/ ./lib/
+	@cp -r ./target/release/libiptool.so ./lib/
 
 # clean up back to initial setup
 # (no target/, no Cargo.lock)

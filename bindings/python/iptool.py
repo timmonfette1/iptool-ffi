@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
-# Python binding for IP Tool
+# Python binding for IP Tool.
+# 
 # Uses the IP Tool FFI to provide all of the
-#  IP Tool functions in a Python library.
+# IP Tool functions in a Python library.
 #
 # Author:
 # Tim Monfette
@@ -10,7 +11,7 @@
 import sys, ctypes
 from ctypes import cdll, c_void_p, c_char_p
 
-lib = cdll.LoadLibrary("./target/release/libiptool.so")
+lib = cdll.LoadLibrary("./libiptool.so")
 
 # Describe argument types for each funciton
 lib.valid_ipv4.argtypes = (c_char_p, )

@@ -26,7 +26,8 @@ Available Libraries
 All availble bindings that can be built into libraries can be found in the "bindings/" directory.<br />
 Currently, the following programming languages have available libraries:
 
-  - python
+  - C
+  - Python
 
 How to Build
 -------------
@@ -34,6 +35,14 @@ In order to build a usable library that can be imported into your language of ch
 provided Makefile.<br />
 
 All make targets will first compile a release version of the FFI by running `cargo build --release`.<br />
+
+`make c-build`<br />
+Will compile the FFI and build the C object file in the resulting "lib/" directory.<br />
+In order to use this object file, you need to link both it and the FFI at compilation of your main source code.<br />
+An example is: `$ gcc test.c iptool.o -L ./ -liptool -o run`<br />
+This will compile the source code file "test.c" and link it with the IP Tool object file and the "libiptool.so" library (the FFI).<br />
+When executing, specify your LD_LIBRARY_PATH like so: `$ LD_LIBRARY_PATH=./ ./run`<br />
+You can permanently set LD_LIBRARY_PATH but be warned you might run into issues with executing other C code.
 
 `make py-build`<br />
 Will compile the FFI and build the Python library in the resulting "lib/" directory.
