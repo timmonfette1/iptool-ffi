@@ -28,6 +28,7 @@ Currently, the following programming languages have available libraries:
 
   - C
   - Python
+  - Javascript (Node.js)
 
 How to Build
 -------------
@@ -54,7 +55,12 @@ You can permanently set LD_LIBRARY_PATH but be warned you might run into issues 
 `make py-build`<br />
 Will compile the FFI and build the Python library in the resulting "lib/" directory.
 
+### Javascript
+`make js-build`<br />
+Will compile the FFI and build the Node.js library in the resulting "lib/" directory.
+
 Examples
 -------------
 The "examples" directory provides example source code files of how to use the generated libraries for each
-binding. They assume you've already built the library and imported it/compiled it with your souce code.
+binding. They assume you've already built the library and imported it/compiled it with your souce code
+or followed standard build procedures for the programming language.

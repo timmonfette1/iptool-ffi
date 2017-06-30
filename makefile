@@ -28,6 +28,13 @@ py-build:
 	@cp -r ./bindings/python/* ./lib/
 	@cp -r ./target/release/libiptool.so ./lib/
 
+# Compile Javascript lib
+js-build:
+	@cargo build --release
+	@mkdir lib
+	@cp -r ./bindings/javascript/* ./lib/
+	@cp -r ./target/release/libiptool.so ./lib/
+
 # clean up back to initial setup
 # (no target/, no Cargo.lock)
 .PHONY: clean
