@@ -29,6 +29,7 @@ Currently, the following programming languages have available libraries:
   - C
   - Python
   - Javascript (Node.js)
+  - Perl
 
 How to Build
 -------------
@@ -58,6 +59,17 @@ Will compile the FFI and build the Python library in the resulting "lib/" direct
 ### Javascript
 `make js-build`<br />
 Will compile the FFI and build the Node.js library in the resulting "lib/" directory.
+
+### Perl
+`make pl-build`<br />
+Will compile the FFI and build the Perl library in the resulting "lib/" directory.<br />
+
+This perl module uses the FFI::Platypus module to call the FFI. You can read about it [here](https://metacpan.org/pod/FFI::Platypus).<br />
+The makefile will install this for you, assuming you have sudo permissions on the machine you're building this on.
+It will install it using the following two commands:<br />
+`$ sudo cpan App::cpanminus` to install "cpanm".<br />
+and<br/>
+`$ sudo cpanm FFI::Platypus` to install the module.<br />
 
 Examples
 -------------

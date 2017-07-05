@@ -35,6 +35,15 @@ js-build:
 	@cp -r ./bindings/javascript/* ./lib/
 	@cp -r ./target/release/libiptool.so ./lib/
 
+# Compile Perl lib
+pl-build:
+	@cargo build --release
+	@sudo cpan App::cpanminus
+	@sudo cpanm FFI::Platypus
+	@mkdir lib
+	@cp -r ./bindings/perl/* ./lib/
+	@cp -r ./target/release/libiptool.so ./lib/
+
 # clean up back to initial setup
 # (no target/, no Cargo.lock)
 .PHONY: clean
