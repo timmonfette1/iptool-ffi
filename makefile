@@ -40,6 +40,7 @@ pl-build:
 	@cargo build --release
 	@sudo cpan App::cpanminus
 	@sudo cpanm FFI::Platypus
+	@sudo cpanm FFI::CheckLib
 	@mkdir lib
 	@cp -r ./bindings/perl/* ./lib/
 	@cp -r ./target/release/libiptool.so ./lib/
