@@ -3,10 +3,6 @@
  * Uses the IP Tool FFI to provide all of the
  * functions in a Node.js file.
  *
- * Can replace any of the "console.log" calls to perform
- * any desired action with the result of the FFI function
- * call.
- *
  * Author:
  * Tim Monfette
  */
