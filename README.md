@@ -38,8 +38,8 @@ in the ./ directory. Changing the location of this will result in you needing to
 the new path.  This might result in needing to re-compile the bindings (for Go, C, etc.).<br />
 
 In a future update I will probably restructure how the bindings are compiled for use so that the shared object
-file ends up in a "lib/" directory of it's own, but that will wait until I finsih implementing all of the bindings
-I want to support.
+file ends up in a "lib/" directory of it's own to better go along with well structured software, but that will
+wait until I finish implementing all of the bindings I want to support.
 
 How to Build
 -------------
