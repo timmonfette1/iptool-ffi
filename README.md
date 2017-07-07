@@ -32,6 +32,15 @@ Currently, the following programming languages have available libraries:
   - Perl
   - Go (Golang)
 
+As a note, each of the generated libraries expects to find the shared object file (libiptool.so) alongside the
+code for the binding.  For example, if you generate the Python binding, the "iptool.py" file looks for the .so
+in the ./ directory. Changing the location of this will result in you needing to change the binding to look in
+the new path.  This might result in needing to re-compile the bindings (for Go, C, etc.).<br />
+
+In a future update I will probably restructure how the bindings are compiled for use so that the shared object
+file ends up in a "lib/" directory of it's own, but that will wait until I finsih implementing all of the bindings
+I want to support.
+
 How to Build
 -------------
 In order to build a usable library that can be imported into your language of choice, use the
