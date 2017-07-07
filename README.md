@@ -30,6 +30,7 @@ Currently, the following programming languages have available libraries:
   - Python
   - Javascript (Node.js)
   - Perl
+  - Go (Golang)
 
 How to Build
 -------------
@@ -70,6 +71,31 @@ It will install it using the following two commands:<br />
 `$ sudo cpan App::cpanminus` to install "cpanm".<br />
 and<br/>
 `$ sudo cpanm FFI::Platypus` to install the module.<br />
+
+It also needs the FFI::CheckLib module and installs it with `$ sudo cpanm FFI::CheckLib`.
+
+### Go (Golang)
+`make go-build`
+Will compile the FFI and build the Golang library in the resulting "lib/" directory.<br />
+
+This target does a lot of directory shuffling to build a Go library for iptool. It will temporarily update your $GOPATH to allow for a Go
+installation of the library. It will then clean-up after itself.<br />
+After this it will leave two directories in the "lib/" folder:
+
+  - pkg/github.com/timmonfette1/iptool
+  - src/github.com/iptool
+
+The first will be holding the "iptool.a" library and the second will be holding "iptool.go", "iptool.h" and "libiptool.so".<br />
+Place the first one in your "pkg" directory in your Go workspace and the second one in your "src" directory in your go workspace.<br />
+Examples for my machine are:
+
+  - pkg/linux_amd64/github.com/timmonfette1/iptool/iptool.a
+  - src/github.com/iptool/timmonfette1/iptool.go
+
+Make sure to not have nested "pkg" or "src" directories by accident when moving these to your Go workspace.<br />
+
+When building/installing your project, make sure to link to the shared library. An example is:<br />
+`$ go install -ldflags="-r /path/to/go/workspace/src/github.com/timmonfette1/iptool"`
 
 Examples
 -------------

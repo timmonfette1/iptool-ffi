@@ -7,7 +7,6 @@
 
 import iptool
 
-
 print(iptool.valid_ipv4("245.67.88.129"))
 print(iptool.valid_ipv4("1.1.1."))
 print(iptool.ipv4_ipv6("26.76.45.99"))
