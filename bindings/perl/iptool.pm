@@ -18,7 +18,7 @@ use FFI::CheckLib;
 
 # Set up the FFI library
 my $ffi = FFI::Platypus->new;
-$ffi->lib(find_lib_or_die lib => 'iptool', libpath => './');
+$ffi->lib(find_lib_or_die lib => 'iptool', libpath => './lib/');
 
 ###### Subroutine definitions ######
 

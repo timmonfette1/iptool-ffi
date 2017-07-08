@@ -7,10 +7,10 @@
 # Tim Monfette
 
 ROOT_DIR := $(PWD)
-GO_PKG := $(ROOT_DIR)/lib/pkg/github.com/timmonfette1/iptool/
-GO_SRC := $(ROOT_DIR)/lib/src/github.com/timmonfette1/iptool/
+GO_PKG := $(ROOT_DIR)/package/pkg/github.com/timmonfette1/iptool/
+GO_SRC := $(ROOT_DIR)/package/src/github.com/timmonfette1/iptool/
 
-GOPATH := $(ROOT_DIR)/lib:${GOPATH}
+GOPATH := $(ROOT_DIR)/package:${GOPATH}
 export GOPATH
 
 default: print-usage
@@ -20,68 +20,63 @@ print-usage:
 	@echo "No default target for this makefile."
 	@echo "See the README for possible targets."
 
-# Compile C lib
-c-build:
+# Setup the package directory
+setup:
 	@cargo build --release
-	@mkdir lib
-	@cp -r ./bindings/c/* ./lib/
-	@cp -r ./target/release/libiptool.so ./lib/
-	@gcc -o ./lib/iptool.o -c ./lib/iptool.c
+	@mkdir $(ROOT_DIR)/package/
+	@mkdir $(ROOT_DIR)/package/lib/
 
-# Compile Python lib
-py-build:
-	@cargo build --release
-	@mkdir lib
-	@cp -r ./bindings/python/* ./lib/
-	@cp -r ./target/release/libiptool.so ./lib/
+# Compile C package
+c-build: setup
+	@cp -r $(ROOT_DIR)/bindings/c/* $(ROOT_DIR)/package/
+	@cp -r $(ROOT_DIR)/target/release/libiptool.so $(ROOT_DIR)/package/lib/
+	@gcc -o $(ROOT_DIR)/package/iptool.o -c $(ROOT_DIR)/package/iptool.c
 
-# Compile Javascript lib
-js-build:
-	@cargo build --release
-	@mkdir lib
-	@cp -r ./bindings/javascript/* ./lib/
-	@cp -r ./target/release/libiptool.so ./lib/
+# Compile Python package
+py-build: setup
+	@cp -r $(ROOT_DIR)/bindings/python/* $(ROOT_DIR)/package/
+	@cp -r $(ROOT_DIR)/target/release/libiptool.so $(ROOT_DIR)/package/lib/
 
-# Compile Perl lib
-pl-build:
-	@cargo build --release
+# Compile Javascript package
+js-build: setup	
+	@cp -r $(ROOT_DIR)/bindings/javascript/* $(ROOT_DIR)/package/
+	@cp -r $(ROOT_DIR)/target/release/libiptool.so $(ROOT_DIR)/package/lib/
+
+# Compile Perl package
+pl-build: setup
 	@sudo cpan App::cpanminus
 	@sudo cpanm FFI::Platypus
-	@sudo cpanm FFI::CheckLib
-	@mkdir lib
-	@cp -r ./bindings/perl/* ./lib/
-	@cp -r ./target/release/libiptool.so ./lib/
+	@sudo cpanm FFI::CheckLib	
+	@cp -r $(ROOT_DIR)/bindings/perl/* $(ROOT_DIR)/package/
+	@cp -r $(ROOT_DIR)/target/release/libiptool.so $(ROOT_DIR)/package/lib/
 
-# Compile Go lib
-go-build:
-	@cargo build --release
-	@mkdir $(ROOT_DIR)/lib/	
-	@mkdir $(ROOT_DIR)/lib/bin
-	@mkdir $(ROOT_DIR)/lib/pkg
-	@mkdir $(ROOT_DIR)/lib/src
-	@mkdir $(ROOT_DIR)/lib/src/iptool
-	@cp -r $(ROOT_DIR)/bindings/go/* $(ROOT_DIR)/lib/src/iptool/
-	@cp -r $(ROOT_DIR)/target/release/libiptool.so $(ROOT_DIR)/lib/src/iptool/
-	@cd $(ROOT_DIR)/lib/src/ ; go install iptool
-	@find ./ -name iptool.a -exec mv {} $(ROOT_DIR)/lib/ \;
-	@mv $(ROOT_DIR)/lib/src/iptool/iptool.go $(ROOT_DIR)/lib
-	@mv $(ROOT_DIR)/lib/src/iptool/iptool.h $(ROOT_DIR)/lib
-	@mv $(ROOT_DIR)/lib/src/iptool/libiptool.so $(ROOT_DIR)/lib
-	@rm -rf $(ROOT_DIR)/lib/bin
-	@rm -rf $(ROOT_DIR)/lib/src
-	@rm -rf $(ROOT_DIR)/lib/pkg
+# Compile Go package
+go-build: setup	
+	@mkdir $(ROOT_DIR)/package/bin
+	@mkdir $(ROOT_DIR)/package/pkg
+	@mkdir -p $(ROOT_DIR)/package/src/iptool/lib/
+	@cp -r $(ROOT_DIR)/bindings/go/* $(ROOT_DIR)/package/src/iptool/
+	@cp -r $(ROOT_DIR)/target/release/libiptool.so $(ROOT_DIR)/package/src/iptool/lib/
+	@cd $(ROOT_DIR)/package/src/ ; go install iptool
+	@find ./ -name iptool.a -exec mv {} $(ROOT_DIR)/package/ \;
+	@mv $(ROOT_DIR)/package/src/iptool/iptool.go $(ROOT_DIR)/package/
+	@mv $(ROOT_DIR)/package/src/iptool/iptool.h $(ROOT_DIR)/package/
+	@mv $(ROOT_DIR)/package/src/iptool/lib/* $(ROOT_DIR)/package/lib/
+	@rm -rf $(ROOT_DIR)/package/bin
+	@rm -rf $(ROOT_DIR)/package/src
+	@rm -rf $(ROOT_DIR)/package/pkg
 	@mkdir -p $(GO_PKG)
 	@mkdir -p $(GO_SRC)
-	@mv $(ROOT_DIR)/lib/iptool.a $(GO_PKG)
-	@mv $(ROOT_DIR)/lib/iptool.go $(GO_SRC)
-	@mv $(ROOT_DIR)/lib/iptool.h $(GO_SRC)
-	@mv $(ROOT_DIR)/lib/libiptool.so $(GO_SRC)
+	@mv $(ROOT_DIR)/package/iptool.a $(GO_PKG)
+	@mv $(ROOT_DIR)/package/iptool.go $(GO_SRC)
+	@mv $(ROOT_DIR)/package/iptool.h $(GO_SRC)
+	@mv $(ROOT_DIR)/package/lib/ $(GO_SRC)
 
 # clean up back to initial setup
-# (no target/, no Cargo.lock)
+# (no target/, no package/, no Cargo.lock)
 .PHONY: clean
 
 clean:
-	@rm -rf ./target
-	@rm -f ./Cargo.lock
-	@rm -rf ./lib
+	@rm -rf $(ROOT_DIR)/target/
+	@rm -f $(ROOT_DIR)/Cargo.lock
+	@rm -rf $(ROOT_DIR)/package/

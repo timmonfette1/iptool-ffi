@@ -11,7 +11,7 @@
 import sys, ctypes
 from ctypes import cdll, c_void_p, c_char_p
 
-lib = cdll.LoadLibrary("./libiptool.so")
+lib = cdll.LoadLibrary("./lib/libiptool.so")
 
 # Describe argument types for each funciton
 lib.valid_ipv4.argtypes = (c_char_p, )

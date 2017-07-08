@@ -10,7 +10,7 @@ package iptool
  */
 
 /*
-#cgo LDFLAGS: -L${SRCDIR} -liptool
+#cgo LDFLAGS: -L${SRCDIR}/lib/ -liptool
 #include <stdlib.h>
 #include "./iptool.h"
 */

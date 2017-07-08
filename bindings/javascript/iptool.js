@@ -9,7 +9,7 @@
 
 const ffi = require('ffi');
 
-const lib = ffi.Library('./libiptool', {
+const lib = ffi.Library('./lib/libiptool', {
   valid_ipv4: ['char *', ['string']],
   ipv4_ipv6: ['char *', ['string']],
   ipv4_bin: ['char *', ['string']],
