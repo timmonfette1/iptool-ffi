@@ -57,8 +57,8 @@ It's recommended to run this before building a new library.
 Will compile the FFI and build the C object file in the resulting "lib/" directory.<br />
 
 In order to use this object file, you need to link both it and the FFI at compilation of your main source code.<br />
-An example is: `$ gcc test.c iptool.o -L ./ -liptool -o run`<br />
-This will compile the source code file "test.c" and link it with the IP Tool object file and the "libiptool.so" library (the FFI).<br />
+An example is: `$ gcc example.c iptool.o -L ./ -liptool -o run`<br />
+This will compile the source code file "example.c" and link it with the IP Tool object file and the "libiptool.so" library (the FFI).<br />
 When executing, specify your LD_LIBRARY_PATH like so: `$ LD_LIBRARY_PATH=./ ./run`<br />
 You can permanently set LD_LIBRARY_PATH but be warned you might run into issues with executing other C code.
 
