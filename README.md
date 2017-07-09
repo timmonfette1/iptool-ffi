@@ -138,6 +138,7 @@ The latter is a Julia module that can be used with `using Iptool` in your Julia 
 Just make sure to add the module to your one of the directories in your LOAD_PATH.
 
 The two methods of using the Iptool are equivalent in terms of functionality provided.<br />
+Which one you use is up to you and depends on the structure of your Julia project (I personally prefer using modules).<br />
 The "example.jl" in "examples/" shows how to use both methods.
 
 Examples
