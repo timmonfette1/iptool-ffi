@@ -120,7 +120,7 @@ This will build the main program (called "example.hs") with "Iptool.hs" and link
 The resulting executable will be called "run" and this can be executed with:<br />
 `$ LD_LIBRARY_PATH=./lib/ ./run`<br />
 
-If you wish to put the "Iptool.hs" module in a sub directory (to make any module package structure you might have), just remember to import
+If you wish to put the "Iptool.hs" module in a sub directory (to match any package structure you might have for your modules), just remember to import
 it accordingly as my "example.hs" file assumes the module is at the same directory level as the main program.
 
 Examples
