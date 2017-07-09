@@ -1,7 +1,7 @@
 # Julia binding for IP Tool.
 # 
 # Uses the IP Tool FFI to provide all of the
-# IP Tool functions in a Julia library.
+# IP Tool functions in a Julia module.
 #
 # Author:
 # Tim Monfette
