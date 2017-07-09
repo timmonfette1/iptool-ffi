@@ -90,6 +90,10 @@ go-build: setup
 hs-build: setup
 	@$(MAKE) -f $(THIS_FILE) build LANG=haskell
 
+# Compile Julia package
+jl-build: setup
+	@$(MAKE) -f $(THIS_FILE) build LANG=julia
+
 # clean up back to initial setup
 # (no target/, no package/, no Cargo.lock)
 .PHONY: clean

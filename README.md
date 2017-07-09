@@ -32,6 +32,7 @@ Currently, the following programming languages have available packages:
   - Perl
   - Go (Golang)
   - Haskell
+  - Julia
 
 Each of the packages expect the "libiptool.so" file to be found in the "./lib/" directory. So make sure
 that when moving the package into your code, you keep the code for the iptool bindings at the same
@@ -122,6 +123,22 @@ The resulting executable will be called "run" and this can be executed with:<br 
 
 If you wish to put the "Iptool.hs" module in a sub directory (to match any package structure you might have for your modules), just remember to import
 it accordingly as my "example.hs" file assumes the module is at the same directory level as the main program.
+
+### Julia
+`make jl-build`<br />
+Will compile the FFI and build the Julia package in the resulting "package/" directory.<br />
+
+There will be two almost identical Julia files in the directory (notice difference in capitalization):
+
+  - iptool.jl
+  - Iptool.jl
+
+The former is a raw function file that can be used with `includes("path/to/iptool.jl")` in your Julia script.<br />
+The latter is a Julia module that can be used with `using Iptool` in your Julia script.<br />
+Just make sure to add the module to your one of the directories in your LOAD_PATH.
+
+The two methods of using the Iptool are equivalent in terms of functionality provided.<br />
+The "example.jl" in "examples/" shows how to use both methods.
 
 Examples
 -------------
