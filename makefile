@@ -72,6 +72,11 @@ go-build: setup
 	@mv $(ROOT_DIR)/package/iptool.h $(GO_SRC)
 	@mv $(ROOT_DIR)/package/lib/ $(GO_SRC)
 
+# Compile Haskell package
+hs-build: setup
+	@cp -r $(ROOT_DIR)/bindings/haskell/* $(ROOT_DIR)/package/
+	@cp -r $(ROOT_DIR)/target/release/libiptool.so $(ROOT_DIR)/package/lib/
+
 # clean up back to initial setup
 # (no target/, no package/, no Cargo.lock)
 .PHONY: clean

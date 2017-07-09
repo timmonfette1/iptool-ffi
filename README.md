@@ -31,6 +31,7 @@ Currently, the following programming languages have available packages:
   - Javascript (Node.js)
   - Perl
   - Go (Golang)
+  - Haskell
 
 Each of the packages expect the "libiptool.so" file to be found in the "./lib/" directory. So make sure
 that when moving the package into your code, you keep the code for the iptool bindings at the same
@@ -104,6 +105,23 @@ Make sure to not have nested "pkg" or "src" directories by accident when moving 
 
 When building/installing your project, make sure to link to the shared library. An example is:<br />
 `$ go install -ldflags="-r /path/to/go/workspace/src/github.com/timmonfette1/iptool/lib"`
+
+### Haskell
+`make hs-compile`<br />
+Will compile the FFI and build the Haskell package in the resulting "package/" directory.<br />
+
+Similar to the C package, the Haskell module has to be compiled with the main program and the library needs to be linked
+at both compile time and run time.<br />
+
+Luckily, GHC will link the module for you, so you compile the code as follows:<br />
+`$ ghc --make example.hs -L./lib/ -liptool -o run`<br/>
+
+This will build the main program (called "example.hs") with "Iptool.hs" and link the FFI shared object file using "./lib/" as a library path.
+The resulting executable will be called "run" and this can be executed with:<br />
+`$ LD_LIBRARY_PATH=./lib/ ./run`<br />
+
+If you wish to put the "Iptool.hs" module in a sub directory (to make any module package structure you might have), just remember to import
+it accordingly as my "example.hs" file assumes the module is at the same directory level as the main program.
 
 Examples
 -------------
