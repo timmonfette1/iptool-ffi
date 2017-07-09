@@ -1,7 +1,7 @@
 -- Example usage of the Haskell binding for IP Tool.
 --
 -- Author:
--- Tim Monfettee
+-- Tim Monfette
 
 import Iptool
 
