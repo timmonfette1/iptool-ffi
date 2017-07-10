@@ -27,6 +27,7 @@ All availble bindings that can be built into packages can be found in the "bindi
 Currently, the following programming languages have available packages:
 
   - C
+  - C++
   - Python
   - Javascript (Node.js)
   - Perl
@@ -60,6 +61,15 @@ An example is: `$ gcc example.c iptool.o -L ./lib/ -liptool -o run`<br />
 This will compile the source code file "example.c" and link it with the IP Tool object file and the "libiptool.so" library (the FFI).<br />
 When executing, specify your LD_LIBRARY_PATH like so: `$ LD_LIBRARY_PATH=./lib/ ./run`<br />
 You can permanently set LD_LIBRARY_PATH but be warned you might run into issues with executing other C code.
+
+### C++
+`make cpp-build`<br />
+Will compile the FFI and build the C++ packge in the resulting "package/" directory.<br />
+
+In order to use this object file, you must use the same commands as the C binding only with g++:
+
+  - `$ g++ example.cpp iptool.o -L ./lib/ -liptool -o run`
+  - `$ LD_LIBRARY_PATH=./lib/ ./run`
 
 ### Python
 `make py-build`<br />

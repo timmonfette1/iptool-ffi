@@ -7,8 +7,12 @@
 #include <stdio.h>
 #include "iptool.h"
 
-void main() {
-  char result[1024];  // Holds return value, I just directly print it
+int main() {
+  char result[1024];  // Holds return value, I just directly print it.
+                      // You should malloc this so you can pass it as a pointer
+                      // to hold the data returned, but for the sake of just showing
+                      // the functionality, I didn't do that.
+
   printf("%s\n", valid_ipv4_c("245.67.88.129", result));
 
   result[0] = '\0';
@@ -43,4 +47,6 @@ void main() {
 
   result[0] = '\0';
   printf("%s\n", ipv6_bin_c("34FD::5720::5666", result));
+
+  return 0;
 }

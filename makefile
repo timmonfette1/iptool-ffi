@@ -49,6 +49,11 @@ c-build: setup
 	@$(MAKE) -f $(THIS_FILE) build LANG=c
 	@gcc -o $(ROOT_DIR)/package/iptool.o -c $(ROOT_DIR)/package/iptool.c
 
+# Compile C++ package
+cpp-build: setup
+	@$(MAKE) -f $(THIS_FILE) build LANG=c++
+	@g++ -o $(ROOT_DIR)/package/iptool.o -c $(ROOT_DIR)/package/iptool.cpp
+
 # Compile Python package
 py-build: setup
 	@$(MAKE) -f $(THIS_FILE) build LANG=python

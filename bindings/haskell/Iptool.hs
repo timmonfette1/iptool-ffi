@@ -1,7 +1,3 @@
-module Iptool (valid_ipv4_h, ipv4_ipv6_h, ipv4_bin_h, valid_ipv6_h, ipv6_ipv4_h, ipv6_bin_h) where
-
-{-# LANGUAGE ForeignFunctionInterface #-}
-
 -- Haskell binding for the IP Tool.
 --
 -- Uses the IP Tool FFI to provide all of the
@@ -9,6 +5,10 @@ module Iptool (valid_ipv4_h, ipv4_ipv6_h, ipv4_bin_h, valid_ipv6_h, ipv6_ipv4_h,
 --
 -- Author:
 -- Tim Monfette
+
+module Iptool (valid_ipv4_h, ipv4_ipv6_h, ipv4_bin_h, valid_ipv6_h, ipv6_ipv4_h, ipv6_bin_h) where
+
+{-# LANGUAGE ForeignFunctionInterface #-}
 
 import Foreign.C.String (CString(..), peekCString, newCString)
 
