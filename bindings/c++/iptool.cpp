@@ -23,49 +23,43 @@ iptool::~iptool() {
 }
 
 // Wrapper for valid_ipv4
-char* iptool::valid_ipv4_cpp(char* userInput, char* buf) {
+void iptool::valid_ipv4_cpp(char* userInput, char* buf) {
   char* result = valid_ipv4(userInput);
   strcpy(buf, result);    // copy string from Rust mem to C
   free_string(result);        // free string on Rust mem side
-  return buf;
 }
 
 // Wrapper for ipv4_ipv6
-char* iptool::ipv4_ipv6_cpp(char* userInput, char* buf) {
+void iptool::ipv4_ipv6_cpp(char* userInput, char* buf) {
   char* result = ipv4_ipv6(userInput);
   strcpy(buf, result);
   free_string(result);
-  return buf;
 }
 
 // Wrapper for ipv4_bin
-char* iptool::ipv4_bin_cpp(char* userInput, char* buf) {
+void iptool::ipv4_bin_cpp(char* userInput, char* buf) {
   char* result = ipv4_bin(userInput);
   strcpy(buf, result);
   free_string(result);
-  return buf;
 }
 
 // Wrapper for valid_ipv6
-char* iptool::valid_ipv6_cpp(char* userInput, char* buf) {
+void iptool::valid_ipv6_cpp(char* userInput, char* buf) {
   char* result = valid_ipv6(userInput);
   strcpy(buf, result);
   free_string(result);
-  return buf;
 }
 
 // Wrapper for ipv6_ipv4
-char* iptool::ipv6_ipv4_cpp(char* userInput, char* buf) {
+void iptool::ipv6_ipv4_cpp(char* userInput, char* buf) {
   char* result = ipv6_ipv4(userInput);
   strcpy(buf, result);
   free_string(result);
-  return buf;
 }
 
 // Wrapper for ipv6_bin
-char* iptool::ipv6_bin_cpp(char* userInput, char* buf) {
+void iptool::ipv6_bin_cpp(char* userInput, char* buf) {
   char* result = ipv6_bin(userInput);
   strcpy(buf, result);
   free_string(result);
-  return buf;
 }

@@ -9,40 +9,52 @@
 
 int main() {
   char result[1024];  // Holds return value, I just directly print it.
-  printf("%s\n", valid_ipv4_c("245.67.88.129", result));
+  valid_ipv4_c("245.67.88.129", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", valid_ipv4_c("1.1.1.", result));
+  valid_ipv4_c("1.1.1.", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", ipv4_ipv6_c("26.76.45.99", result));
+  ipv4_ipv6_c("26.76.45.99", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", ipv4_ipv6_c("12.155.278.75", result));
+  ipv4_ipv6_c("12.155.278.75", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", ipv4_bin_c("35.68.199.202", result));
+  ipv4_bin_c("35.68.199.202", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", ipv4_bin_c("97.67.133.29.1", result));
+  ipv4_bin_c("97.67.133.29.1", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", valid_ipv6_c("1::1", result));
+  valid_ipv6_c("1::1", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", valid_ipv6_c("5566:45FR:679A::", result));
+  valid_ipv6_c("5566:45FR:679A::", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", ipv6_ipv4_c("2002::3456:5690", result));
+  ipv6_ipv4_c("2002::3456:5690", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", ipv6_ipv4_c("::1::", result));
+  ipv6_ipv4_c("::1::", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", ipv6_bin_c("AB6D:4678:12FA::679B", result));
+  ipv6_bin_c("AB6D:4678:12FA::679B", result);
+  printf("%s\n", result);
 
   result[0] = '\0';
-  printf("%s\n", ipv6_bin_c("34FD::5720::5666", result));
+  ipv6_bin_c("34FD::5720::5666", result);
+  printf("%s\n", result);
 
   return 0;
 }

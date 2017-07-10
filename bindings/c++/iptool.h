@@ -36,12 +36,12 @@ class iptool {
     ~iptool();
 
     // Wrappers to handle using the funcitons for the user
-    char* valid_ipv4_cpp(char* userInput, char* buf);
-    char* ipv4_ipv6_cpp(char* userInput, char* buf);
-    char* ipv4_bin_cpp(char* userInput, char* buf);
-    char* valid_ipv6_cpp(char* userInput, char* buf);
-    char* ipv6_ipv4_cpp(char* userInput, char* buf);
-    char* ipv6_bin_cpp(char* userInput, char* buf);
+    void valid_ipv4_cpp(char* userInput, char* buf);
+    void ipv4_ipv6_cpp(char* userInput, char* buf);
+    void ipv4_bin_cpp(char* userInput, char* buf);
+    void valid_ipv6_cpp(char* userInput, char* buf);
+    void ipv6_ipv4_cpp(char* userInput, char* buf);
+    void ipv6_bin_cpp(char* userInput, char* buf);
 
 };
 
