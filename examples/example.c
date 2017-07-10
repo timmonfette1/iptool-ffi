@@ -9,10 +9,6 @@
 
 int main() {
   char result[1024];  // Holds return value, I just directly print it.
-                      // You should malloc this so you can pass it as a pointer
-                      // to hold the data returned, but for the sake of just showing
-                      // the functionality, I didn't do that.
-
   printf("%s\n", valid_ipv4_c("245.67.88.129", result));
 
   result[0] = '\0';
