@@ -30,6 +30,7 @@ Currently, the following programming languages have available packages:
   - C++
   - Python
   - Javascript (Node.js)
+  - Java
   - Perl
   - Go (Golang)
   - Haskell
@@ -78,6 +79,24 @@ Will compile the FFI and build the Python package in the resulting "package/" di
 ### Javascript
 `make js-build`<br />
 Will compile the FFI and build the Node.js package in the resulting "package/" directory.
+
+### Java
+`make java-build`<br />
+Will compile the FFI and build the Java package in the resulting "package/" directory.<br />
+
+There is a dependency on the "libjffi-jni" package. I know for a fact this has to be installed on Ubuntu
+systems (including Linux Mint and Trisquel). I don't know about other OSes and whether or not they need it.
+I didn't include an auto-installation for this in the makefile since it might be OS dependent so installing it is on you.<br />
+
+The Iptool library is provided in a .jar file in the "jars/" directory. Add ALL of these jars to the
+build path of your project to make use of the Iptool library.<br />
+
+The Iptool object has two constructors:
+
+  - Pass the path to the "lib/" directory explicitly.
+  - Pass nothing and use the defualt location `System.getProperty("user.dir");`.
+
+See the example for passing a path if you need extra clarification.
 
 ### Perl
 `make pl-build`<br />

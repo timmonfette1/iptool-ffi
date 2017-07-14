@@ -58,6 +58,14 @@ cpp-build: setup
 py-build: setup
 	@$(MAKE) -f $(THIS_FILE) build LANG=python
 
+# Compile Java Package
+java-build: setup
+	@$(MAKE) -f $(THIS_FILE) build LANG=java	
+	@cd $(ROOT_DIR)/package/ ; javac -cp "jars/*" src/iptool/*.java -d . ; jar cvf Iptool.jar iptool/*.class	
+	@mv $(ROOT_DIR)/package/Iptool.jar $(ROOT_DIR)/package/jars/
+	@rm -rf $(ROOT_DIR)/package/src/
+	@rm -rf $(ROOT_DIR)/package/iptool/
+
 # Compile Javascript package
 js-build: setup	
 	@$(MAKE) -f $(THIS_FILE) build LANG=javascript

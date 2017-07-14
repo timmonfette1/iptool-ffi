@@ -6,7 +6,6 @@
  * Tim Monfette
  */
 
-
 function testFFI() {
   console.log(valid_ipv4("245.67.88.129"));
   console.log(valid_ipv4("1.1.1."));
