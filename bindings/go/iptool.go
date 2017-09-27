@@ -12,7 +12,7 @@ package iptool
 /*
 #cgo LDFLAGS: -L${SRCDIR}/lib/ -liptool
 #include <stdlib.h>
-#include "./iptool.h"
+#include "./lib/iptool.h"
 */
 import "C"
 import "unsafe"
